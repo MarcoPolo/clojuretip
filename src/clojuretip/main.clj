@@ -96,12 +96,13 @@
   (GET "/" [:as req]
     (let [names (or (get-stored-names (:names (:session req)))
                     (shuffled-names))
-          old-names (or (get-stored-names (:old-names (:session req)))
-                        [])
-          [nm & remainder] names]
+          [nm & remainder] names
+          old-names (cons nm
+                          (or (get-stored-names (:old-names (:session req)))
+                              []))]
       (assoc (show-name (var-for nm) old-names)
         :session {:names (pr-str remainder)
-                  :old-names (pr-str (take 20 (cons nm old-names)))})))
+                  :old-names (pr-str (take 20 old-names))})))
   (GET "/:nm" [nm :as req]
     (let [old-names (or (get-stored-names (:old-names (:session req)))
                         [])]
