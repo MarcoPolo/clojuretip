@@ -9,7 +9,7 @@
 (def style
   (css
    [:#container {:margin "30px auto"
-                 :width "500px"}]
+                 :width "600px"}]
    [:#primary {:font-weight "bold"}]
    [:ul {:list-style-type "none"
          :padding-left "0px"}]
