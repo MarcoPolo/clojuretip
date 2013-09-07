@@ -106,19 +106,15 @@
     (let [names (or (get-stored-names (:names (:session req)))
                     (shuffled-names))
           [nm & remainder] names
-          old-names (cons nm
-                          (or (get-stored-names (:old-names (:session req)))
-                              []))]
+          old-names (cons nm (get-stored-names (:old-names (:session req))))]
       (assoc (show-name (var-for nm) old-names)
         :session {:names (pr-str remainder)
                   :old-names (pr-str (take 20 old-names))})))
   (GET "/:nm" [nm :as req]
-    (let [old-names (or (get-stored-names (:old-names (:session req)))
-                        [])]
+    (let [old-names (get-stored-names (:old-names (:session req)))]
       (show-name (var-for (deque nm)) old-names)))
   (GET "/recent/:n" [n :as req]
-    (let [old-names (or (get-stored-names (:old-names (:session req)))
-                        [])
+    (let [old-names (get-stored-names (:old-names (:session req)))
           n (Integer/parseInt n)]
       (if (< -1 n (count old-names))
         (if-let [nm (nth old-names n)]
