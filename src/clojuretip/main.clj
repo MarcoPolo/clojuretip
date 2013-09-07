@@ -26,12 +26,16 @@
     (cond
       (.endsWith nm "?") (str (subs nm 0 (- (count nm) 1)) "_q")
       (= nm "/") "_"
+      ;; (= nm ".") "_dot"
+      (= nm "..") "_dotdot"
       :else nm)))
 
 (defn deque [nm]
   (cond
     (.endsWith nm "_q") (str (subs nm 0 (- (count nm) 2)) "?")
     (= nm "_") "/"
+    ;; (= nm "_dot") "."
+    (= nm "_dotdot") ".."
     :else nm))
 
 (defn show-name [nm old-names]
