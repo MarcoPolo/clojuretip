@@ -8,8 +8,7 @@
 
 (def style
   (css
-   [:#container {:margin "30px auto"
-                 :width "600px"}]
+   [:#container {:margin "30px"}]
    [:#primary {:font-weight "bold"}]
    [:ul {:list-style-type "none"
          :padding-left "0px"}]
@@ -17,7 +16,8 @@
            :font-family "Menlo, monospace"}]
    [:hr {:height "1px"
          :border "0px"
-         :background-color "#aaa"}]
+         :background-color "#aaa"
+         :width "375px"}]
    [:footer {:margin-top "70px"
              :font-size "75%"}]))
 
@@ -72,7 +72,7 @@
                      (interpose ", "
                                 (for [[idx nm] (map list (iterate inc 0) (take 3 old-names))]
                                   [:a {:href (str "/recent/" idx)} nm]))])
-                  [:hr]
+                  [:hr {:align "left"}]
                   [:p "Idea by "
                    [:a {:href "https://github.com/TimMc"} "TimMc"]
                    ". Webified by "
