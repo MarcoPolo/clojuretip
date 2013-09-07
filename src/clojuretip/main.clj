@@ -54,11 +54,14 @@
                   [:p
                    [:a {:href "/"} "random"]
                    ", "
-                   [:a {:href (str "/" (enque (:name name-meta)))} "permalink"]
+                   [:a {:href (str "/" (enque (:name name-meta)))}
+                    "permalink"]
                    ", "
-                   [:a {:href (str "http://clojuredocs.org/clojure_core/" fq-enqued-name)} "clojuredocs"]
+                   [:a {:href (str "http://clojuredocs.org/clojure_core/" fq-enqued-name)}
+                    "clojuredocs"]
                    ", "
-                   [:a {:href (str "http://clojure.github.io/clojure/clojure.core-api.html#" fq-dequed-name)} "official docs"]]
+                   [:a {:href (str "http://clojure.github.io/clojure/clojure.core-api.html#" fq-dequed-name)}
+                    "official docs"]]
                   (if-not (empty? old-names)
                     [:p
                      "Recent: "
