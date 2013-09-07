@@ -70,6 +70,8 @@
                    [:a {:href "https://github.com/TimMc"} "TimMc"]
                    ". Webified by "
                    [:a {:href "https://github.com/sdegutis"} "sdegutis"]
+                   ". Source "
+                   [:a {:href "https://github.com/sdegutis/clojuretip"} "on github"]
                    "."]]]]))]
     {:status 200
      :headers {"Content-Type" "text/html"}
