@@ -62,10 +62,13 @@
                     "permalink"]
                    ", "
                    [:a {:href (str "http://clojuredocs.org/clojure_core/" fq-enqued-name)}
-                    "clojuredocs"]
+                    "clojuredocs.org"]
                    ", "
                    [:a {:href (str "http://clojure.github.io/clojure/clojure.core-api.html#" fq-dequed-name)}
-                    "official docs"]]
+                    "official docs"]
+                   ", "
+                   [:a {:href (format "http://getclojure.org/search?q=%s&num=0" (:name name-meta))}
+                    "getclojure.org"]]
                   (if-not (empty? old-names)
                     [:p
                      "Recent: "
